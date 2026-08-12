@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pedidos de Oração com Padre Lucas Lima</title>
+<style>
+  :root {
+    --bg: #f2e6d3;
+    --paper: #fbf4e6;
+    --paper-edge: #e6d3b3;
+    --text: #3a2517;
+    --text-muted: #7a5a3f;
+    --accent: #7b4a2a;
+    --accent-strong: #56331d;
+    --accent-soft: #e8d2b0;
+    --gold: #b3852f;
+    --focus: #b3852f;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #241812;
+      --paper: #2e1f16;
+      --paper-edge: #4a3323;
+      --text: #f1e3d0;
+      --text-muted: #cbab86;
+      --accent: #d3a15f;
+      --accent-strong: #e9c07f;
+      --accent-soft: #4a3323;
+      --gold: #d3a15f;
+      --focus: #d3a15f;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #241812;
+    --paper: #2e1f16;
+    --paper-edge: #4a3323;
+    --text: #f1e3d0;
+    --text-muted: #cbab86;
+    --accent: #d3a15f;
+    --accent-strong: #e9c07f;
+    --accent-soft: #4a3323;
+    --gold: #d3a15f;
+    --focus: #d3a15f;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: clamp(20px, 5vw, 56px) 16px;
+    line-height: 1.55;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--paper);
+    border: 1px solid var(--paper-edge);
+    border-radius: 6px;
+    padding: clamp(28px, 6vw, 48px);
+    box-shadow: 0 1px 2px rgba(58, 37, 23, 0.06), 0 12px 32px -16px rgba(58, 37, 23, 0.35);
+  }
+
+  .beads {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .beads span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.55;
+  }
+  .beads span:nth-child(4) {
+    width: 9px;
+    height: 9px;
+    opacity: 0.9;
+  }
+
+  .eyebrow {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 10px;
+  }
+
+  h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-size: clamp(24px, 4.4vw, 30px);
+    text-align: center;
+    text-wrap: balance;
+    margin: 0 0 14px;
+    color: var(--text);
+  }
+
+  .lede {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15.5px;
+    max-width: 40ch;
+    margin: 0 auto 32px;
+    text-wrap: balance;
+  }
+
+  form { display: flex; flex-direction: column; gap: 18px; }
+
+  label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  input, textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 15px;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--paper-edge);
+    padding: 8px 2px;
+    resize: vertical;
+    font-family: inherit;
+  }
+
+  textarea { min-height: 96px; }
+
+  input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 0.55; }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-bottom-color: var(--accent);
+  }
+  input:focus-visible, textarea:focus-visible, button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .submit {
+    margin-top: 8px;
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    padding: 13px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .submit:hover { background: var(--accent-strong); }
+
+  .hint {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-top: -6px;
+  }
+
+  /* thank-you / live invite state */
+  .after { display: none; text-align: center; }
+  .after.show { display: block; }
+  #form-view.hide { display: none; }
+
+  .candle {
+    width: 3px;
+    height: 34px;
+    margin: 0 auto 18px;
+    background: linear-gradient(var(--accent-soft), var(--accent-soft));
+    border-radius: 2px;
+    position: relative;
+  }
+  .candle::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 12px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: var(--gold);
+    box-shadow: 0 0 10px 2px var(--gold);
+    animation: flicker 2.4s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .candle::before { animation: none; }
+  }
+  @keyframes flicker {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    50% { transform: translateX(-50%) scale(0.92, 1.06); opacity: 0.85; }
+  }
+
+  .after h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+
+  .after p {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    max-width: 38ch;
+    margin: 0 auto 24px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--paper-edge);
+    margin: 26px 0;
+  }
+
+  .live-label {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 8px;
+  }
+
+  .live-cta {
+    display: inline-block;
+    background: var(--accent-strong);
+    color: var(--paper);
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 13px 26px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .live-cta:hover { opacity: 0.92; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="beads" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div id="form-view">
+    <p class="eyebrow">Pedido de oração</p>
+    <h1>Deixe seu pedido com Padre Lucas Lima</h1>
+    <p class="lede">Escreva o que está no seu coração. Vamos orar por você — e por todos que passarem por aqui.</p>
+
+    <form id="prayer-form">
+      <div>
+        <label for="nome">Seu nome</label>
+        <input id="nome" name="nome" type="text" placeholder="Como podemos te chamar" required />
+      </div>
+      <div>
+        <label for="pedido">Seu pedido de oração</label>
+        <textarea id="pedido" name="pedido" placeholder="Conte um pouco do que você está vivendo..." required></textarea>
+      </div>
+      <button class="submit" type="submit">Enviar meu pedido</button>
+      <p class="hint">Seu pedido é lido com respeito e carinho.</p>
+    </form>
+  </div>
+
+  <div class="after" id="after-view">
+    <div class="candle" aria-hidden="true"></div>
+    <p class="live-label">Concluído</p>
+    <h2 id="after-title">Seu pedido foi recebido.</h2>
+    <p>Obrigado por confiar esse momento a nós. Carlos vai orar por você — e te espera na live de oração.</p>
+    <a class="live-cta" href="https://liveyoutube.site/marcelo-rossi-2" id="live-link">Acessar a live</a>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('prayer-form');
+  const formView = document.getElementById('form-view');
+  const afterView = document.getElementById('after-view');
+  const afterTitle = document.getElementById('after-title');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    afterTitle.textContent = nome
+      ? 'Seu pedido foi recebido, ' + nome + '.'
+      : 'Seu pedido foi recebido.';
+    formView.classList.add('hide');
+    afterView.classList.add('show');
+    afterView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
+
+</body>
+</html>
