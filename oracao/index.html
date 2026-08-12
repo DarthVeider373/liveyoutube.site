@@ -237,6 +237,32 @@
     margin: 0 0 8px;
   }
 
+  .live-time {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 22px 0;
+  }
+
+  .live-time-value {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--accent-strong);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .live-time-caption {
+    font-size: 14px;
+    color: var(--text);
+    text-align: left;
+    max-width: 20ch;
+  }
+
   .live-cta {
     display: inline-block;
     background: var(--accent-strong);
@@ -280,8 +306,14 @@
     <div class="candle" aria-hidden="true"></div>
     <p class="live-label">Concluído</p>
     <h2 id="after-title">Seu pedido foi recebido.</h2>
-    <p>Obrigado por confiar esse momento a nós. Carlos vai orar por você — e te espera na live de oração.</p>
-    <a class="live-cta" href="https://liveyoutube.site/marcelo-rossi-2" id="live-link">Acessar a live</a>
+    <p>Guardamos suas palavras com carinho. Padre Lucas Lima vai orar por você.</p>
+
+    <div class="live-time">
+      <span class="live-time-value">20h</span>
+      <span class="live-time-caption">Hoje tem live de oração — vem com a gente.</span>
+    </div>
+
+   
   </div>
 </div>
 
