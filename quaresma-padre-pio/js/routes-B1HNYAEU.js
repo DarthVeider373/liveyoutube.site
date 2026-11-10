@@ -1,0 +1,1 @@
+import{_ as e}from"./index-arF_E3c0.js";import{t}from"./devotional-post-BQKVamtu.js";var n=e();function r(){return(0,n.jsx)(t,{showOffer:!0})}export{r as component};
