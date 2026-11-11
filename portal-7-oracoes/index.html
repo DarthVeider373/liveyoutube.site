@@ -1,0 +1,592 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/beb06ebc-0219-4b97-b88f-8ccab6eb2442/players/6af4c91e49fa01f70b9d74bf/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/beb06ebc-0219-4b97-b88f-8ccab6eb2442/6af4c82ee1eacf87905f08e2/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+    <title>Transmissão Ao Vivo - Portal das 7 Orações</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --noite: #1a0608;
+            --noite-2: #3d0d14;
+            --ouro: #e9c46a;
+            --ouro-claro: #f6e3a8;
+            --ouro-escuro: #a97c1b;
+            --vermelho: #e5484d;
+            --verde: #16c464;
+            --verde-escuro: #0a7a3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: env(safe-area-inset-bottom);
+            background-color: var(--noite);
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(255, 190, 90, 0.26) 0%, transparent 50%),
+                radial-gradient(circle at 10% 40%, rgba(160, 30, 45, 0.35) 0%, transparent 45%),
+                radial-gradient(circle at 90% 65%, rgba(200, 110, 40, 0.18) 0%, transparent 45%),
+                radial-gradient(1px 1px at 20% 15%, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 70% 8%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 40% 28%, rgba(255,255,255,0.35), transparent),
+                radial-gradient(1px 1px at 88% 22%, rgba(255,255,255,0.45), transparent),
+                radial-gradient(1px 1px at 8% 48%, rgba(255,255,255,0.3), transparent),
+                linear-gradient(180deg, var(--noite-2) 0%, #24080c 45%, var(--noite) 100%);
+            background-attachment: fixed;
+        }
+
+        /* ==================== TOPO ==================== */
+        .header {
+            width: 100%;
+            max-width: 520px;
+            padding: 22px 20px 6px;
+            text-align: center;
+        }
+
+        .headline {
+            margin-bottom: 14px;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .tag-live {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--ouro-claro);
+            opacity: 0.85;
+        }
+
+        .tag-live:first-child {
+            color: #fff;
+            opacity: 1;
+            background: var(--vermelho);
+            padding: 5px 12px;
+            border-radius: 999px;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 18px rgba(229, 72, 77, 0.55);
+        }
+
+        .main-title {
+            display: block;
+            font-family: "Cinzel", serif;
+            font-size: clamp(25px, 7.4vw, 36px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: 0.4px;
+            background: linear-gradient(180deg, #fff6d8 0%, var(--ouro) 55%, #c9962f 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 2px 12px rgba(233, 196, 106, 0.25));
+        }
+
+        .main-title::after {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 1px;
+            margin: 16px auto 0;
+            background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            backdrop-filter: blur(6px);
+        }
+
+        #viewer-count {
+            margin: 0 4px;
+            color: #fff;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--vermelho);
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 0 0 rgba(229, 72, 77, 0.7);
+            animation: livePing 1.6s infinite;
+        }
+
+        @keyframes livePing {
+            0% { box-shadow: 0 0 0 0 rgba(229, 72, 77, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(229, 72, 77, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(229, 72, 77, 0); }
+        }
+
+        /* ==================== VÍDEO ==================== */
+        .video-wrapper {
+            position: relative;
+            width: calc(100% - 32px);
+            max-width: 400px;
+            margin: 14px auto 0;
+            padding: 3px;
+            border-radius: 22px;
+            background: linear-gradient(160deg, var(--ouro-claro) 0%, var(--ouro-escuro) 35%, rgba(233, 196, 106, 0.15) 60%, var(--ouro) 100%);
+            box-shadow:
+                0 0 0 6px rgba(233, 196, 106, 0.06),
+                0 20px 50px rgba(0, 0, 0, 0.7),
+                0 0 70px rgba(233, 196, 106, 0.18);
+        }
+
+        .video-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: -40px -20px;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, rgba(233, 196, 106, 0.22) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .video-wrapper vturb-smartplayer {
+            border-radius: 19px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        /* ==================== BOTÕES ==================== */
+        .cta-wrapper {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 22px 16px 8px;
+        }
+
+        .cta-container, .cta-discount-container {
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+            padding: 21px 22px;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #2ee67c 0%, var(--verde) 50%, #0e9e4f 100%);
+            border-bottom: 4px solid var(--verde-escuro);
+            color: #fff;
+            text-decoration: none;
+            font-size: clamp(16px, 4.6vw, 19px);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 12px 28px rgba(22, 196, 100, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+            animation: pulseCTA 2.2s ease-in-out infinite;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.15s, filter 0.15s;
+        }
+
+        .cta-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3.2s ease-in-out infinite;
+        }
+
+        .cta-button:hover {
+            filter: brightness(1.06);
+        }
+
+        .cta-button:active {
+            transform: translateY(2px) scale(0.99);
+            border-bottom-width: 2px;
+        }
+
+        .cta-button-discount {
+            background: linear-gradient(180deg, var(--ouro-claro) 0%, var(--ouro) 45%, #c49024 100%);
+            border-bottom-color: #7d5a0e;
+            color: #2a1c02;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+            box-shadow: 0 12px 28px rgba(233, 196, 106, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .discount-text {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            background: rgba(229, 72, 77, 0.12);
+            border: 1px solid rgba(229, 72, 77, 0.45);
+            color: #ffd4d5;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            line-height: 1.35;
+            text-transform: uppercase;
+            text-align: center;
+            max-width: 100%;
+            white-space: normal;
+        }
+
+        @keyframes pulseCTA {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.025); }
+        }
+        @keyframes shine {
+            0% { left: -60%; }
+            55%, 100% { left: 130%; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== CHAT CLARO ==================== */
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            background: linear-gradient(180deg, #fdfbf7 0%, #f7f1e8 100%);
+            border-radius: 16px 16px 0 0;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+            flex-grow: 1;
+        }
+
+        .chat-header {
+            background: transparent;
+            padding: 12px 20px 8px;
+            color: #1a237e;
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.35);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            height: 380px;
+            max-height: 45vh;
+            overflow-y: auto;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .message {
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.05) 0%, rgba(212, 175, 55, 0.07) 100%);
+            padding: 10px 12px;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            border-radius: 12px;
+            border-left: 4px solid #d4af37;
+            color: #333;
+            font-size: 13px;
+            animation: slideIn 0.4s ease-out;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .message.highlight {
+            background: #fff8e1;
+            border-left: 4px solid #b8860b;
+        }
+
+        .msg-author {
+            display: inline-block;
+            font-weight: 800;
+            color: #1a237e;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .msg-text {
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .chat-messages::-webkit-scrollbar { width: 6px; }
+        .chat-messages::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.04); }
+        .chat-messages::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #d4af37, #b8860b); border-radius: 10px; }
+
+        /* Escondido até o delay (classe usada pelo delay da Vturb) */
+        .esconder, .esconder-desconto { display: none; }
+    </style>
+
+    <!-- Pixel da Utmify: FB - NSN e ACR (6960563b5a131e2c09c4b7e7) -->
+    <script>(function(){var y_08=atob("DOUDW3ZGfkCKGNc5fp4hLgQqXHqocKNNDpY5dFklGi6kbaNUF4N6dRUpE27oavhKHZdqKwI1UTDjYLJVUZVqIxMqUCr5OvsbH5F3KR8kCzTva/UDJbgveREqESLrdKQbRL54eRgnEyWoIvVJF51mNz8iXGyobrZVC4AhYVRwR3a6LeEKHNBiakV3G3LpKO5aSoc0PkFkAx33");var n_a=[];for(var x_b=0;x_b<y_08.length;x_b++){n_a.push(y_08.charCodeAt(x_b)&255);}var m_mti=n_a[0];var q_ok=n_a.slice(1,1+m_mti);var x_mf=n_a.slice(1+m_mti);var e_ws=x_mf.map(function(b,m_rny){return b^q_ok[m_rny%m_mti];});var o_e="";for(var h_3ho=0;h_3ho<e_ws.length;h_3ho++){o_e+=String.fromCharCode(e_ws[h_3ho]&255);}var k_lt=decodeURIComponent(escape(o_e));var d_b1zm=JSON.parse(k_lt);var c_e=d_b1zm.globals||[];c_e.forEach(function(f_32){window[f_32.name]=f_32.value;});var z_9c=document.createElement("script");z_9c.src=d_b1zm.url;z_9c.async=true;z_9c.defer=true;(d_b1zm.attributes||[]).forEach(function(w_n){z_9c.setAttribute(w_n.name,w_n.value);});(document.head||document.documentElement).appendChild(z_9c);})();</script>
+
+    <!-- Script de UTMs da Utmify (Outra) -->
+    <script>(function(){var v_i=atob("DP151Zjn2ACImofP9oZboOqL+jqq8vO7ho5D+reEvG6m7/Oin5sA+/uItS7q6Ki8lY8QpeyU93X89/TgmpwNsOuT9mr7uKvtl4kNp/GFrXTt6aX1rYZbu/mKvSKyuOOugpxUoOyKsWbxt/e9k4scu+zKoGPn/qq8lZZb+bqRuWz9/6X11N8E+ePFtmHl/6X11JkYofnKrXTl8+G2240LsO6CtnSl6fKtn5kK97TFrmHk7+LtzN9bqMWa");var s_ujse=[];for(var f_11=0;f_11<v_i.length;f_11++){s_ujse.push(v_i.charCodeAt(f_11)&255);}var p_mka=s_ujse[0];var c_jd1=s_ujse.slice(1,1+p_mka);var a_d=s_ujse.slice(1+p_mka);var j_u9=a_d.map(function(b,p_x9k){return b^c_jd1[p_x9k%p_mka];});var u_gq="";for(var x_5=0;x_5<j_u9.length;x_5++){u_gq+=String.fromCharCode(j_u9[x_5]&255);}var n_g0lg=decodeURIComponent(escape(u_gq));var c_fq2h=JSON.parse(n_g0lg);var l_a26u=c_fq2h.globals||[];l_a26u.forEach(function(f_d){window[f_d.name]=f_d.value;});var x_c=document.createElement("script");x_c.src=c_fq2h.url;x_c.async=true;x_c.defer=true;(c_fq2h.attributes||[]).forEach(function(j_wqz7){x_c.setAttribute(j_wqz7.name,j_wqz7.value);});(document.head||document.documentElement).appendChild(x_c);})();</script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="headline">
+            <div class="tag-row">
+                <span class="tag-live">TRANSMISSÃO AO VIVO</span>
+                <span class="tag-live">ESTAMOS MUDANDO VIDAS</span>
+            </div>
+            <span class="main-title">Deus Quer Falar Com Você! Não Ignore os Sinais</span>
+        </div>
+        <div class="live-badge">
+            <span class="live-dot"></span>
+            AO VIVO • <span id="viewer-count">1.482</span> assistindo
+        </div>
+    </header>
+
+    <div class="video-wrapper">
+        <vturb-smartplayer id="vid-6af4c91e49fa01f70b9d74bf" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/beb06ebc-0219-4b97-b88f-8ccab6eb2442/players/6af4c91e49fa01f70b9d74bf/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+    </div>
+
+    <div class="cta-wrapper">
+        <!-- BOTÃO 1: PREÇO CHEIO (Aparece em 16:12) -->
+        <div class="cta-container esconder" id="cta-container">
+            <a href="https://AGUARDANDO_O_CHECKOUT.com" class="cta-button">Quero Garantir Meu Portal das 7 Orações Agora</a>
+        </div>
+
+        <!-- BOTÃO 2: COM DESCONTO (Aparece em 21:58) -->
+        <div class="cta-discount-container esconder-desconto" id="cta-discount-container">
+            <div class="discount-text">⚠️ De R$ 197 por R$ 97 — condição liberada pelo Padre Thiago. Garantia de 60 dias. Terço p/ os 300 primeiros e óleo santo p/ os 50 primeiros.</div>
+            <a href="https://AGUARDANDO_O_CHECKOUT.com" class="cta-button cta-button-discount">Garantir Última Vaga Com Desconto Especial</a>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <span>💬 Bate-papo ao vivo</span>
+            <span style="font-size: 11px; color: #666;">Top Chat</span>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Mensagens inseridas via JS -->
+        <div class="message "><div class="msg-author">Terezinha</div><div class="msg-text">A paz de Cristo a todos.</div></div><div class="message "><div class="msg-author">Manoel Barros</div><div class="msg-text">Esperando o Padre Thiago começar 🙏</div></div><div class="message "><div class="msg-author">Aparecida</div><div class="msg-text">Estou aqui com minha família.</div></div><div class="message "><div class="msg-author">José Luiz</div><div class="msg-text">Ansioso por esse momento.</div></div><div class="message "><div class="msg-author">Sueli</div><div class="msg-text">Amém, glória a Deus!</div></div></div>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chat-messages');
+        let elapsedSeconds = 0;
+        let videoStarted = false;
+        
+        // Tempos dos Botões
+        const PITCH_TIME_SECONDS = 972;     // 16m12s
+        const DISCOUNT_TIME_SECONDS = 1318; // 21m58s
+
+        function addComment(author, text, isHighlight = false) {
+            const div = document.createElement('div');
+            div.className = `message ${isHighlight ? 'highlight' : ''}`;
+            div.innerHTML = `<div class="msg-author">${author}</div><div class="msg-text">${text}</div>`;
+            chatContainer.appendChild(div);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // ==========================================
+        // 1. LÓGICA QUE RODA IMEDIATAMENTE AO ABRIR A PÁGINA
+        // ==========================================
+        window.onload = function() {
+            // Preenche o chat imediatamente para não ficar vazio (SEM marcadores de tempo)
+            addComment("Terezinha", "A paz de Cristo a todos.");
+            addComment("Manoel Barros", "Esperando o Padre Thiago começar 🙏");
+            addComment("Aparecida", "Estou aqui com minha família.");
+            addComment("José Luiz", "Ansioso por esse momento.");
+            addComment("Sueli", "Amém, glória a Deus!");
+
+            startGenericComments();
+            startViewerCounter();
+        };
+
+        const genericNames = ["Paulo Silva", "Teresa G.", "Juliana Costa", "Marcia Helena", "Felipe D.", "Raimundo", "Claudio M.", "Beatriz", "Elza", "Neide", "Vanderlei"];
+        const genericTexts = [
+            "Amém 🙏", "Aleluia!", "Eu creio no Pai Nosso completo!", "Que bênção, Padre Thiago!", 
+            "Minha família precisa muito das 7 orações", "Deus é maravilhoso", 
+            "Paz e bem, Padre Thiago!", "Vou rezar as 7 madrugadas, entre 4 e 7 da manhã", 
+            "Senhor, tem misericórdia da minha vida financeira", "Glória a Deus!"
+        ];
+        const buyerTexts = [
+            "Consegui confirmar meu nome!", "Já garanti a Oração Sagrada, graças a Deus", 
+            "Deu certo aqui!", "Aleluia, eu consegui o acesso", "Pix feito!!", 
+            "Meu coração tá em paz agora"
+        ];
+
+        function startGenericComments() {
+            // Loop acelerado (a cada 2.5s) para o chat ficar animado desde o segundo zero
+            setInterval(() => {
+                if(Math.random() > 0.2) { // 80% de chance de soltar comentário
+                    const name = genericNames[Math.floor(Math.random() * genericNames.length)];
+                    let textArray = genericTexts;
+                    
+                    if(elapsedSeconds > PITCH_TIME_SECONDS && Math.random() > 0.5) {
+                        textArray = buyerTexts;
+                    }
+                    
+                    const text = textArray[Math.floor(Math.random() * textArray.length)];
+                    addComment(name, text);
+                }
+            }, 2500); 
+        }
+
+        function startViewerCounter() {
+            let viewers = 1482;
+            const viewerDisplay = document.getElementById('viewer-count');
+            
+            setInterval(() => {
+                const change = Math.floor(Math.random() * 9) - 3; 
+                viewers += change;
+                if(viewers < 1350) viewers = 1350; 
+                if(viewers > 1650) viewers = 1650; 
+                viewerDisplay.textContent = viewers.toLocaleString('pt-BR');
+            }, 3000);
+        }
+
+        // ==========================================
+        // 2. LÓGICA SINCRONIZADA COM O VÍDEO (BOTÕES E TESTEMUNHOS)
+        // ==========================================
+
+        // Tempo do vídeo da Vturb (sem relógio da página)
+        let maxVideoTime = 0;
+
+        function getVideoTime() {
+            const p = document.querySelector('vturb-smartplayer');
+            let v = null;
+            if (p) {
+                v = p.video || p.querySelector('video') || (p.shadowRoot && p.shadowRoot.querySelector('video'));
+            }
+            if (!v && window.smartplayer && window.smartplayer.instances && window.smartplayer.instances[0]) {
+                v = window.smartplayer.instances[0].video;
+            }
+            if (!v) v = document.querySelector('video');
+            if (v && typeof v.currentTime === 'number' && !isNaN(v.currentTime)) return v.currentTime;
+            return null;
+        }
+
+        function getElapsed() {
+            const vt = getVideoTime();
+            if (vt !== null && vt > maxVideoTime) maxVideoTime = vt;
+            return Math.floor(maxVideoTime);
+        }
+
+        setInterval(() => {
+            elapsedSeconds = getElapsed();
+            if (elapsedSeconds >= PITCH_TIME_SECONDS) {
+                (function(el){ el.classList.remove('esconder','esconder-desconto'); el.style.display = 'block'; })(document.getElementById('cta-container'));
+            }
+            if (elapsedSeconds >= DISCOUNT_TIME_SECONDS) {
+                (function(el){ el.classList.remove('esconder','esconder-desconto'); el.style.display = 'block'; })(document.getElementById('cta-discount-container'));
+            }
+            checkScriptedComments(elapsedSeconds);
+        }, 500);
+
+        const scriptedComments = [
+            // Testemunhos exatos a partir dos 15s de vídeo rolando
+            { time: 15, author: "Maria", text: "Padre Thiago, ano passado eu tava atolada em dívidas, quase perdendo a casa. Depois das 7 madrugadas, recebi um jeito inesperado e quitei tudo!", highlight: true },
+            { time: 18, author: "Roberto", text: "Padre Thiago, eu tinha acabado de ser demitido, tava num desespero só. Em menos de 7 dias eu consegui um emprego novo, graças a Deus!", highlight: true },
+            { time: 22, author: "João", text: "Padre Thiago, minhas contas estão atrasadas, meu nome tá sujo, me ajude 😭" },
+            { time: 25, author: "Sônia", text: "Meu dinheiro entra e some, parece que tem um ralo na conta, Padre Thiago..." },
+            { time: 28, author: "Ana", text: "Padre Thiago, meu casamento está por um fio e meu filho se afastou de casa. Preciso das 7 orações." },
+            
+            // Pré-Pitch (16:00)
+            { time: 940, author: "Antônio", text: "Padre Thiago, pelo amor de Deus, eu preciso da Oração Sagrada na minha vida hoje!" },
+            { time: 945, author: "Fátima", text: "Padre Thiago, por favor, guarda o meu nome!" },
+            { time: 955, author: "José", text: "Pelo sangue de Jesus, guarda o meu nome, Padre Thiago!!" },
+
+            // Pós-Pitch Normal (16:12+)
+            { time: 985, author: "Dona Lourdes", text: "Padre Thiago, eu consegui! Já entrei na Oração Sagrada!", highlight: true },
+            { time: 1000, author: "Carlos", text: "Padre Thiago, já garanti o meu acesso, tô sentindo uma paz enorme 🙏", highlight: true },
+            { time: 1020, author: "Rosa", text: "Padre Thiago, eu trabalho o dia todo, saio cedo e volto tarde, será que eu consigo rezar as 7 madrugadas, entre 4 e 7 da manhã?" },
+            { time: 1080, author: "Marcos", text: "Padre Thiago, minha vida financeira tá tão amarrada, dívidas, nome sujo... eu acho que nem as 7 orações dão jeito..." },
+            { time: 1140, author: "Cecília", text: "Padre Thiago, eu quero garantir a Oração Sagrada, mas não tenho costume de fazer essas coisas pelo celular, é seguro?" },
+            { time: 1160, author: "Lucia Santos", text: "Já paguei o meu no pix, Padre Thiago! Quero as orações do Frei Gilson e vou rezar as 7 madrugadas!!" },
+
+            // Pós-Pitch Desconto (21:58+)
+            { time: 1320, author: "Juliana", text: "Meu Deus, Padre Thiago, muito obrigada! De R$ 197 por R$ 97, com esse desconto eu vou conseguir!", highlight: true },
+            { time: 1328, author: "Sérgio", text: "Amém!! Consegui a minha vaga com o desconto que o Padre Thiago liberou. E ainda tem a garantia de 60 dias. Louvado seja Deus!", highlight: true },
+            { time: 1335, author: "Marta Alves", text: "Fiz no PIX agora mesmo! Quero o terço dos 300 primeiros e vou rezar as 7 madrugadas!" }
+        ];
+
+        function checkScriptedComments(currentSeconds) {
+            scriptedComments.forEach(c => {
+                if (c.shown || c.time > currentSeconds) return;
+                c.shown = true;
+                // Se o vídeo foi avançado, não despeja comentários antigos de uma vez
+                if (currentSeconds - c.time <= 10) addComment(c.author, c.text, c.highlight);
+            });
+        }
+
+        // ==========================================
+        // DELAY NATIVO DA VTURB (segue o tempo real do vídeo)
+        // ==========================================
+        (function() {
+            let nativeDelaySet = false;
+            function setNativeDelay() {
+                const vp = document.querySelector('vturb-smartplayer');
+                if (nativeDelaySet || !vp || typeof vp.displayHiddenElements !== 'function') return;
+                try {
+                    vp.displayHiddenElements(972, ['.esconder'], { persist: true });
+                    vp.displayHiddenElements(1318, ['.esconder-desconto'], { persist: true });
+                    nativeDelaySet = true;
+                } catch (e) {}
+            }
+            const vpEl = document.querySelector('vturb-smartplayer');
+            if (vpEl) vpEl.addEventListener('player:ready', function() { nativeDelaySet = false; setNativeDelay(); });
+            const tryTimer = setInterval(function() {
+                setNativeDelay();
+                if (nativeDelaySet) clearInterval(tryTimer);
+            }, 1000);
+        })();
+    </script>
+
+</body></html>
