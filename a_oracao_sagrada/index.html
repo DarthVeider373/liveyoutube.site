@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#3B0D11">
+  <meta name="description" content="A Oração Sagrada: sua biblioteca devocional com orações, estudos e experiências de fé para todos os dias.">
+  <title>A Oração Sagrada • Sua jornada de fé</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icon-192.png"><link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="site.css">
+  <script src="config.js" defer></script>
+  <script src="conteudo.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="app">
+<a class="skip-link" href="#app-main">Ir para o conteúdo</a>
+<svg class="svg-icons" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z"/><path d="M9 21v-8h6v8"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7a8 8 0 0 0-9-1v14a8 8 0 0 1 9 1 8 8 0 0 1 9-1V6a8 8 0 0 0-9 1Zm0 0v14"/></symbol>
+<symbol id="i-scroll" viewBox="0 0 24 24"><path d="M8 4h12a2 2 0 0 1 2 2v13a3 3 0 0 1-3 3H7"/><path d="M6 4a3 3 0 0 0-3 3v13a2 2 0 0 0 2 2 2 2 0 0 0 2-2V6a2 2 0 0 1 2-2M10 10h8m-8 4h8"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M12 9v12M2 9h20M12 9c-5-2-6-7-3-7 2 0 3 4 3 7Zm0 0c5-2 6-7 3-7-2 0-3 4-3 7Z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5v14m6-14v14"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+<symbol id="i-headphones" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 0 1 16 0v3M4 14H2v5h5v-5H4Zm16 0h2v5h-5v-5h3Z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6L12 2Z"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+<symbol id="i-volume" viewBox="0 0 24 24"><path d="M5 9H2v6h3l5 4V5L5 9Zm9 0a5 5 0 0 1 0 6m3-9a9 9 0 0 1 0 12"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></symbol>
+<symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 18a3 3 0 1 1-3-3c1.65 0 3 1.34 3 3Zm11-2a3 3 0 1 1-3-3c1.65 0 3 1.34 3 3Z"/></symbol>
+</defs></svg>
+<div class="app-shell">
+  <aside class="app-sidebar" aria-label="Menu principal">
+    <a class="brand brand-side" href="index.html" aria-label="A Oração Sagrada — início"><span class="brand-mark">✦</span><span class="brand-type">A ORAÇÃO<br><strong>SAGRADA</strong><small>UM ESPAÇO DE FÉ</small></span></a>
+    <div class="side-label">SUA JORNADA</div>
+    <nav class="side-nav" id="side-nav" aria-label="Navegação do aplicativo">
+      <button type="button" class="nav-link active" data-go="inicio"><svg class="icon"><use href="#i-home"/></svg><span>Início</span></button>
+      <button type="button" class="nav-link" data-go="oracao"><svg class="icon"><use href="#i-book"/></svg><span>Oração de Salomão</span></button>
+      <button type="button" class="nav-link" data-go="manuscrito"><svg class="icon"><use href="#i-scroll"/></svg><span>O manuscrito</span></button>
+      <button type="button" class="nav-link" data-go="biblioteca"><svg class="icon"><use href="#i-grid"/></svg><span>Biblioteca de orações</span></button>
+      <button type="button" class="nav-link" data-go="bonus"><svg class="icon"><use href="#i-gift"/></svg><span>Meus bônus</span></button>
+    </nav>
+    <div class="side-spacer"></div>
+    <div class="side-progress"><div class="progress-overline">SEU CAMINHO <span id="progress-count">0/29</span></div><div class="progress-track"><span id="progress-fill"></span></div><p>Cada oração é um pequeno momento de presença.</p></div>
+    <div class="side-footer">Com fé, serenidade e sabedoria <span>✧</span></div>
+  </aside>
+  <div class="app-content-column">
+    <header class="app-topbar">
+      <a class="mobile-brand" href="index.html"><span>✦</span> A ORAÇÃO SAGRADA</a>
+      <div class="topbar-kicker">SEU REFÚGIO ESPIRITUAL <span class="tiny-star">✧</span></div>
+      <div class="topbar-right"><span class="date-pill" id="today-date">Sua jornada começa aqui</span><span class="topbar-ornament" aria-hidden="true">✺</span></div>
+    </header>
+    <main id="app-main" class="app-main" tabindex="-1">
+      <section class="view active" id="view-inicio" aria-labelledby="home-title">
+        <div class="app-hero">
+          <div class="hero-copy"><span class="eyebrow on-dark"><span class="eyebrow-dot"></span> SUA JORNADA COMEÇA AQUI</span><h1 id="home-title">Um lugar de <em>oração,</em><br>sabedoria e paz.</h1><p>Encontre momentos de fé e acolhimento para os desafios e as alegrias de cada dia.</p><div class="hero-actions"><button type="button" class="btn btn-gold" data-go="oracao">Começar minha oração <svg class="icon"><use href="#i-arrow"/></svg></button><button type="button" class="text-link text-link-light" data-go="biblioteca">Explorar orações <svg class="icon"><use href="#i-arrow"/></svg></button></div><div class="hero-quote"><span>✺</span><span>“A sabedoria é a coisa principal.” <small>Provérbios 4:7</small></span></div></div>
+          <div class="hero-visual"><img src="assets/hero-oracao.png" alt="Ilustração de um livro de orações aberto diante de um arco antigo"><div class="hero-floating"><span>✦</span> Um instante de paz todos os dias</div></div>
+        </div>
+        <section class="home-section" aria-labelledby="pillars-title"><div class="section-heading"><div><span class="eyebrow">UMA EXPERIÊNCIA COMPLETA</span><h2 id="pillars-title">Os três pilares da sua jornada</h2><p>Conteúdos para ler, ouvir, refletir e levar para a vida.</p></div><span class="gold-flourish" aria-hidden="true">✧</span></div>
+          <div class="pillar-grid">
+            <button class="pillar-card" type="button" data-go="oracao"><div class="pillar-image"><img src="assets/pilar-oracao.png" alt="Livro antigo aberto"><span class="pill-num">01</span></div><div class="pillar-body"><span class="card-overline">PRIMEIRO PILAR</span><h3>A Oração Perdida de Salomão</h3><p>Uma experiência de leitura e escuta, inspirada na busca por sabedoria.</p><span class="card-bottom">Iniciar leitura <svg class="icon"><use href="#i-arrow"/></svg></span></div></button>
+            <button class="pillar-card" type="button" data-go="manuscrito"><div class="pillar-image"><img src="assets/pilar-manuscrito.png" alt="Manuscrito antigo em pergaminho"><span class="pill-num">02</span></div><div class="pillar-body"><span class="card-overline">SEGUNDO PILAR</span><h3>O Manuscrito de Salomão</h3><p>Reflexões comentadas sobre discernimento, proteção e vida abundante.</p><span class="card-bottom">Conhecer o estudo <svg class="icon"><use href="#i-arrow"/></svg></span></div></button>
+            <button class="pillar-card" type="button" data-go="biblioteca"><div class="pillar-image"><img src="assets/pilar-colecao.png" alt="Símbolo ornamental em dourado"><span class="pill-num">03</span></div><div class="pillar-body"><span class="card-overline">TERCEIRO PILAR</span><h3>28 Orações para a Vida</h3><p>Palavras de fé organizadas por diferentes momentos e necessidades.</p><span class="card-bottom">Ver a coleção <svg class="icon"><use href="#i-arrow"/></svg></span></div></button>
+          </div>
+        </section>
+        <section class="home-section" aria-labelledby="category-home-title"><div class="section-heading"><div><span class="eyebrow">PARA CADA MOMENTO</span><h2 id="category-home-title">O que seu coração precisa hoje?</h2><p>Escolha um tema para encontrar uma oração especial.</p></div></div><div id="home-categories" class="home-categories"></div></section>
+        <section class="daily-banner"><div class="daily-symbol">✧</div><div><span class="eyebrow on-dark">UM MOMENTO PARA VOCÊ</span><h2>Faça uma pausa. Respire. Recomece.</h2><p>Às vezes, tudo o que precisamos é de alguns minutos para reorganizar o coração.</p></div><button class="btn btn-light" type="button" data-go="oracao">Ouvir agora <svg class="icon"><use href="#i-headphones"/></svg></button></section>
+        <section class="home-section home-bonus" aria-labelledby="home-bonus-title"><div class="section-heading"><div><span class="eyebrow">PRESENTES DA SUA JORNADA</span><h2 id="home-bonus-title">Três bônus para acompanhar você</h2><p>Descubra conteúdos extras criados para enriquecer seus momentos de fé.</p></div><button class="text-link" type="button" data-go="bonus">Ver todos <svg class="icon"><use href="#i-arrow"/></svg></button></div><div class="home-bonus-grid" id="home-bonus-grid"></div></section>
+        <p class="editorial-note">Os textos desta versão são composições devocionais contemporâneas inspiradas em temas bíblicos, e não reproduções comprovadas de manuscritos antigos.</p>
+      </section>
+
+      <section class="view" id="view-oracao" aria-labelledby="prayer-heading"><div class="interior-head"><span class="eyebrow">PILAR 01 • LEITURA E ESCUTA</span><h1 id="prayer-heading">A Oração Perdida<br><em>de Salomão</em></h1><p>Um encontro com a serenidade, a prudência e a esperança.</p></div><div class="prayer-layout"><article class="reading-card"><div class="reading-header"><span class="chapter-label">ORAÇÃO PRINCIPAL</span><span class="reading-ornament" aria-hidden="true">✣</span></div><h2 id="prayer-title">A Oração de Salomão</h2><p class="reading-subtitle" id="prayer-subtitle"></p><div class="prayer-paragraphs" id="prayer-text"></div><div class="reading-endmark" aria-hidden="true">✦</div><div class="reading-actions"><button class="btn btn-outline" type="button" id="copy-main"><svg class="icon"><use href="#i-copy"/></svg> Copiar texto</button><button class="btn btn-dark" type="button" id="complete-main"><svg class="icon"><use href="#i-check"/></svg> <span>Marcar como concluída</span></button></div></article><aside class="reading-aside"><div class="listening-card"><div class="listening-top"><span class="circle-soft"><svg class="icon"><use href="#i-headphones"/></svg></span><span class="eyebrow">MODO ESCUTA</span></div><h3>Ouça com o coração</h3><p>Acompanhe a oração em áudio, em um momento tranquilo.</p><button type="button" class="audio-main-control" id="play-main"><span class="play-round"><svg class="icon"><use href="#i-play"/></svg></span><span id="main-play-label">Ouvir esta oração</span></button><p class="audio-hint" id="audio-hint">Se o MP3 não estiver disponível, será usada a leitura por voz do dispositivo.</p></div><div class="reflection-card"><span class="eyebrow">PARA REFLETIR</span><div class="reflection-star">✧</div><p id="main-reflection"></p><span class="reflection-signature">Um pequeno passo por dia.</span></div></aside></div><p class="editorial-note" id="prayer-note"></p></section>
+
+      <section class="view" id="view-manuscrito" aria-labelledby="manuscript-heading"><div class="interior-head"><span class="eyebrow">PILAR 02 • SABEDORIA E REFLEXÃO</span><h1 id="manuscript-heading">O Manuscrito<br><em>de Salomão</em></h1><p>Um estudo devocional comentado em quatro capítulos, inspirado na literatura sapiencial bíblica.</p></div><div class="manuscript-intro"><div><span class="eyebrow on-dark">O CAMINHO DA SABEDORIA</span><h2>Palavras antigas, reflexões para o presente.</h2><p>Explore temas como discernimento, trabalho, família e esperança por meio de referências bíblicas e reflexões contemporâneas.</p></div><img src="assets/pilar-manuscrito.png" alt="Ilustração de pergaminho antigo"></div><div class="section-heading section-heading-compact"><div><span class="eyebrow">QUATRO CAPÍTULOS</span><h2>Abra um capítulo e aprofunde sua leitura</h2></div></div><div class="chapter-list" id="chapter-list"></div><p class="editorial-note">Esta seção é um estudo original; não representa tradução certificada de um suposto manuscrito original de Salomão.</p></section>
+
+      <section class="view" id="view-biblioteca" aria-labelledby="library-heading"><div class="interior-head"><span class="eyebrow">PILAR 03 • BIBLIOTECA DEVOCIONAL</span><h1 id="library-heading">Orações para<br><em>cada momento</em></h1><p>28 orações em quatro caminhos de fé. Encontre as palavras que você precisa hoje.</p></div><div class="library-controls"><div class="search-field"><svg class="icon"><use href="#i-search"/></svg><input id="prayer-search" type="search" placeholder="Buscar uma oração..." aria-label="Buscar oração"></div><div class="filter-chips" id="filter-chips" role="group" aria-label="Filtrar por categoria"></div></div><div class="library-count" id="library-count"></div><div class="prayer-grid" id="prayer-grid"></div><div class="empty-state" id="no-results" hidden><span>✧</span><h3>Nenhuma oração encontrada</h3><p>Tente outra palavra ou escolha uma categoria diferente.</p><button type="button" class="btn btn-outline" id="clear-search">Limpar filtros</button></div><p class="editorial-note">As orações são textos de apoio espiritual e não substituem acompanhamento médico, psicológico, jurídico ou financeiro.</p></section>
+
+      <section class="view" id="view-bonus" aria-labelledby="bonuses-heading"><div class="interior-head"><span class="eyebrow">TRÊS PRESENTES ESPECIAIS</span><h1 id="bonuses-heading">Seus bônus<br><em>sagrados</em></h1><p>Uma coleção de materiais extras para tornar seu momento de fé ainda mais especial.</p></div><div class="bonus-intro"><span class="bonus-intro-icon">✦</span><div><h2>Um cuidado a mais para sua jornada</h2><p>Explore as propostas de edição física, guia digital e experiência sonora. Alguns itens dependem da inclusão de arquivos ou confirmação de disponibilidade.</p></div></div><div class="bonus-grid" id="bonus-grid"></div></section>
+    </main>
+    <footer class="app-footer"><span>✦ A Oração Sagrada</span><span>Um espaço de oração e reflexão • Feito com cuidado</span><a href="oferta.html">Conhecer a apresentação do projeto</a></footer>
+  </div>
+</div>
+<nav class="mobile-nav" aria-label="Menu inferior"><button type="button" data-go="inicio" class="mobile-nav-item active"><svg class="icon"><use href="#i-home"/></svg><span>Início</span></button><button type="button" data-go="oracao" class="mobile-nav-item"><svg class="icon"><use href="#i-book"/></svg><span>Oração</span></button><button type="button" data-go="manuscrito" class="mobile-nav-item"><svg class="icon"><use href="#i-scroll"/></svg><span>Estudo</span></button><button type="button" data-go="biblioteca" class="mobile-nav-item"><svg class="icon"><use href="#i-grid"/></svg><span>Orações</span></button><button type="button" data-go="bonus" class="mobile-nav-item"><svg class="icon"><use href="#i-gift"/></svg><span>Bônus</span></button></nav>
+<div class="modal-backdrop" id="detail-modal" hidden><div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><button type="button" class="modal-close" id="modal-close" aria-label="Fechar"><svg class="icon"><use href="#i-x"/></svg></button><div id="modal-content"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>if("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")){navigator.serviceWorker.register("./sw.js").catch(()=>{});}</script>
+</body></html>

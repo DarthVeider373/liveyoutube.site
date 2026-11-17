@@ -1,0 +1,16 @@
+ADICIONE AQUI SEUS ARQUIVOS MP3:
+
+oracao-salomao.mp3       — Oração principal
+cantico-de-deus.mp3      — Bônus do cântico (aprox. 7 min)
+cura-1.mp3 ... cura-7.mp3
+pros-1.mp3 ... pros-7.mp3
+fam-1.mp3 ... fam-7.mp3
+prot-1.mp3 ... prot-7.mp3
+
+Se um MP3 de oração não estiver disponível, o aplicativo oferece leitura em voz alta
+utilizando a voz do navegador/dispositivo (quando o navegador for compatível).
+Não se cria nenhum áudio artificial para o bônus do cântico.
+
+AVISO: Os textos inclusos são composições editoriais originais para demonstração.
+Substitua por traduções/manuscritos devidamente documentados caso vá fazer
+alegações de autenticidade histórica ou tradução do hebraico.

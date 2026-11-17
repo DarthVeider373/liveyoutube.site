@@ -1,0 +1,16 @@
+{
+  "name": "A Oração Sagrada",
+  "short_name": "Oração Sagrada",
+  "description": "Sua biblioteca devocional de orações, leituras e reflexões.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FAF6EE",
+  "theme_color": "#3B0D11",
+  "lang": "pt-BR",
+  "icons": [
+    {"src":"assets/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"assets/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
